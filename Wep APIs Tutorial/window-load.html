@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- DOMContentLoaded보다 먼저 실행된다. -->
+  <script src="test.js" defer></script>
+</head>
+<body>
+  
+  <script>
+    // document 즉, html만 완료되면 호출됨
+    window.addEventListener('DOMContentLoaded', () => {
+      console.log('DOMContentLoaded');
+    });
+    // 모든 리소스 ( css, images ... )가 완료되면 호출됨
+    window.addEventListener('load', () => {
+      console.log('load');
+    });
+
+    // 페이지가 끝날 때, 나갈 때 ( before unload )
+    window.addEventListener('beforeunload', () => {
+      console.log('beforeunload');
+    });
+    // 모든 리소스가 unload가될 때
+    window.addEventListener('unload', () => {
+      console.log('unload');
+    });
+  </script>
+</body>
+</html>
