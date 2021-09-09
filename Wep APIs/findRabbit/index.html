@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Scroll</title>
+    <style>
+      body {
+        background-color: black;
+      }
+      
+      img {
+        display: block;
+        margin: auto;
+      }
+
+      button {
+        display: block;
+        outline: none;
+        background-color: tomato;
+        color: white;
+        font-size: 32px;
+        margin: auto;
+        padding: 0;
+        cursor: pointer;
+        
+      }
+    </style>
+  </head>
+  <body>
+    <button id="findButton">Find a rabbit! </button>
+    <img src="img/carrot.png" alt="carrot">
+    <img src="img/carrot.png" alt="carrot">
+    <img src="img/carrot.png" alt="carrot">
+    <img src="img/carrot.png" alt="carrot">
+    <img src="img/carrot.png" alt="carrot">
+    <img src="img/carrot.png" alt="carrot">
+    <img id="rabbit" src="img/rabbit.png" alt="rabbit">
+    <img src="img/carrot.png" alt="carrot">
+    <img src="img/carrot.png" alt="carrot">
+    <img src="img/carrot.png" alt="carrot">
+    <img src="img/carrot.png" alt="carrot">
+
+    <script>
+      const button = document.querySelector('#findButton');
+      const rabbit = document.querySelector('#rabbit');
+      button.addEventListener('click', () => {
+        // block 옵션을 center로 지정하면 해당 요소가 수직 스크롤링 시 어떤 위치에 정렬될지 정할 수 있다.
+        // ref : https://developer.mozilla.org/ko/docs/Web/API/Element/scrollIntoView
+        rabbit.scrollIntoView({behavior: 'smooth', block: 'center'});
+      });
+    </script>
+  </body>
+</html>
