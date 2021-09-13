@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      html {
+        padding: 0px;
+        margin: 0px;
+      }
+
+      body {
+        background-color: black;
+        text-align: center;
+      }
+      section {
+        width: 50%;
+        margin: 50px auto;
+        background-color: brown;
+        border-radius: 20px;
+        padding: 20px;
+      }
+      img {
+        z-index: 100;
+        will-change: opacity;
+      }
+      h1,
+      h3,
+      span {
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <img src="img/people.png" alt="avatar" />
+      <img src="img/avatar.png" alt="avatar" />
+      <h1 id="brand">Dream Coding</h1>
+      <h3>Don't forget to code your dream</h3>
+    </section>
+    <span>Hello World!</span>
+    <!-- <script>
+      
+      // // 옛날 방식
+      // const image = document.getElementById('brand');
+
+      // // 가장 처음 찾는 img태그를 가져온다.
+      // const image = document.querySelector('img');  // people.png
+
+      const image = document.querySelector('img[src="img/avatar.png"]'); //직접 지정하였기에 avatar
+      console.log(image);
+
+      const imageAll = document.querySelectorAll('img'); // 모든 img를 담아온다.
+      
+    </script> -->
+
+    <script>
+      const section = document.querySelector('section');
+      const h2 = document.createElement('h2');
+      h2.setAttribute('class', 'title'); // <h2 class='title'></h2>
+      h2.textContent = 'This is a title!';// <h2 class='title'>This is a title!</h2>
+      const h3 = document.querySelector('h3');
+
+      section.appendChild(h2);  // section의 가장 뒤부분에 h2를 추가
+      section.insertBefore(h2, h3) // section 내부에서 h3태그 이전에 추가
+    </script>
+    
+  </body>
+</html>
