@@ -64,6 +64,15 @@
 
       section.appendChild(h2);  // section의 가장 뒤부분에 h2를 추가
       section.insertBefore(h2, h3) // section 내부에서 h3태그 이전에 추가
+
+      // innerHTML은 실제 코드에서의 줄간격, 띄어쓰기가 모두 적용됨
+      // section.innerHTML = `
+      // <img src="img/avatar.png" alt="avatar" />
+      // <h1 id="brand">Dream Coding</h1>
+      // <h2>hi</h2>
+      // `;
+
+      section.removeChild(h2); //해당 태그를 제거
     </script>
     
   </body>
