@@ -27,10 +27,19 @@
     <div></div>
     <div></div>
     <script>
+      // 스크롤링과같이 빠르게 발생해야하는 이벤트들의 경우 추가 기능이 있어도 기다리지 않고 수행된다. (Passive)
+      // 이 때 preventDefault()를 하여도 무시한다.
+      // option으로 Passive를 false로 설정하면 preventDefault()를 사용할 수는있다.
+      // 하지만 passive: true가 기본값으로 되어있는것들은 false로 하지 않는것이 좋다.
       document.addEventListener('wheel', event => {
         console.log('scrolling');
+        // browser에서 기본적으로 발생하는 동작을 취소하는 preventDefault();
         event.preventDefault();
-      });
+      }/*, {passive: false} */);
+
+      
+      // 기본적으로 이벤트가 등록이되면 먼저 처리할 일들을 처리한 뒤에 브라우저의 기본 기능이 수행이된다. (Active)
+      // 아래 예를 보면 console.log를 처리한 뒤에야 체크박스의 체크 기능이 수행되는것이다.
       const checkbox = document.querySelector('input');
       checkbox.addEventListener('click', event => {
         // long
