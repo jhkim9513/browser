@@ -42,7 +42,19 @@ addBtn.addEventListener("click", () => {
   onAdd();
 });
 
-input.addEventListener("keypress", (e) => {
+input.addEventListener("keydown", (e) => {
+  // keydown일 경우에는 누르자마자 동작하기 때문에 'a'키가 먹히지 않지만
+  // keyup을 사용할 경우 키를 뗀 순간에 작동하기 때문에 a키가 입력되는것을 확인할 수 있다.
+  if (e.key === "a") {
+    e.preventDefault();
+  }
+
+  // 한글처럼 여러개의 키를 사용하여 한 글자를 만드는 경우에 keydown을 사용하게되면
+  // 중간중간에 이벤트가 발생할 수 있기 때문에 isComposing 상태라면 즉, 글자가 완성되기전 상태라면
+  // 이벤트를 발생시키지 않도록하여 문제를 해결할 수 있다.
+  if (e.isComposing) {
+    return;
+  }
   if (e.key === "Enter") {
     onAdd();
   }
