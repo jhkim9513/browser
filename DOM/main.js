@@ -1,6 +1,14 @@
 const items = document.querySelector(".items");
 const input = document.querySelector(".footer__input");
 const addBtn = document.querySelector(".footer__button");
+const form = document.querySelector(".new-form");
+
+// form에서 사용자가 enter 또는 버튼입력을 하게되면 submit 이벤트가 발생한다.
+form.addEventListener("submit", (e) => {
+  // submit 이벤트는 자동적으로 페이지 리로드가 이루어지기 때문에 이를 방지하기 위해서 preventDefault
+  e.preventDefault();
+  onAdd();
+});
 
 function onAdd() {
   // 1. 사용자가 입력한 텍스트를 받아옴
@@ -37,7 +45,7 @@ function createItem(text) {
 
   return itemRow;
 }
-
+/*
 addBtn.addEventListener("click", () => {
   onAdd();
 });
@@ -59,7 +67,7 @@ input.addEventListener("keydown", (e) => {
     onAdd();
   }
 });
-
+*/
 items.addEventListener("click", (e) => {
   const id = e.target.dataset.id;
   if (id) {
